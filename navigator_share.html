@@ -7,6 +7,7 @@
 </head>
 <body>
   <button onclick="share()">Share</button>
+  <button onclick="shareWithoutUrl()">Share Without Url</button>
   <script>
     function share() {
       navigator
@@ -14,6 +15,13 @@
           title: 'Mitra',
           text: 'Mitra Bukalapak',
           url: 'https://mitra.bukalapak.com'
+        })
+    }
+    function shareWithoutUrl() {
+      navigator
+        .share({
+          title: 'Mitra',
+          text: 'Welcome to \bMitra Bukalapak\b',
         })
     }
   </script>
