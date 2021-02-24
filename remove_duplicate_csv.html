@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="input1" placeholder="input1"><br/>
+  <input type="text" id="input2" placeholder="input2"><br/>
+  <button onclick="calc()">Process</button><br/>
+  <textarea name="" id="result" cols="30" rows="10"></textarea>
+  <script>
+    function calc () {
+      const input1 = document.querySelector('#input1').value;
+      const input2 = document.querySelector('#input2').value;
+      const input1List = input1.replace(' ', '').split(',');
+      const input2List = input2.replace(' ', '').split(',');
+      const input1Result = input1List.filter(data => !input2List.includes(data));
+      const input2Result = input2List.filter(data => !input1List.includes(data));
+      document.querySelector('#result').value = `input1=${input1Result.join(',')}\ninput2=${input2Result.join(',')}`
+    }
+  </script>
+</body>
+</html>
