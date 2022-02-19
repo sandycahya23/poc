@@ -1,0 +1,17 @@
+<h2>Replace vocals to one vocal
+<input type="text" id="text" placeholder="text">
+<input type="text" id="vocal" placeholder="vocal" value="u">
+<button type="button" onclick="process">Process</button/>
+<input type="text" id="result" readonly>
+<script>
+const VOCALS = 'aiueo';
+function process(){
+  const text = document.getElementById("text").value;
+  const vocal = document.getElementById("vocal").value;
+  let result = text;
+  VOCALS.split('').forEach(VOCAL => {
+    result = result.replaceAll(VOCAL,vocal);
+  });
+  document.getElementById("result").value = result;
+}
+</script>
