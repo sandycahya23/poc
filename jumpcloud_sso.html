@@ -9,12 +9,16 @@
 <body>
   <script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
   <script>
-    var config = {
-      apiKey: "AIzaSyCnwcg9Y5WvGFglqDNseYwGJUMOL8SMpMg",
-      authDomain: "jumpcloud-poc.firebaseapp.com",
-    };
-    firebase.initializeApp(config);
-    firebase.auth.SAMLAuthProvider('saml.jumpcloud-demo')
+    async function initSSO() {
+      var config = {
+        apiKey: "AIzaSyCnwcg9Y5WvGFglqDNseYwGJUMOL8SMpMg",
+        authDomain: "jumpcloud-poc.firebaseapp.com",
+      };
+      await firebase.initializeApp(config);
+      const provider = new firebase.auth.SAMLAuthProvider('saml.jumpcloud-demo');
+      console.log(provider);
+    }
+    initSSO();
   </script>
 </body>
 </html>
