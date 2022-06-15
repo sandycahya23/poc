@@ -17,6 +17,12 @@
       await firebase.initializeApp(config);
       const provider = new firebase.auth.SAMLAuthProvider('saml.jumpcloud-demo');
       console.log(provider);
+      try {
+        const loginResponse = await firebase.auth().signInWithPopup(provider);
+        console.log(loginResponse);
+      } catch (e) {
+        console.error(e);
+      }
     }
     initSSO();
   </script>
